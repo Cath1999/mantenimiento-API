@@ -1,26 +1,24 @@
-package com.prolis.catmunicipio.entities;
+package com.prolis.departamento.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonTypeId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Data
 
-public class catMunicipio {
+public class catDepartamento {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
 
-    private Long IdMunicipio;
-    private Long IdDepartmento;
+    private Long IdDepartamento;
+    private Long IdPais;
     private String Descripcion;
-    private Long Estado;
-
-
-
 
 }

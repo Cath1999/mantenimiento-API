@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
@@ -24,5 +25,5 @@ public class empleado {
 
     private Long idUsuarioModificacion;
 
-    private Date 
+
      }
