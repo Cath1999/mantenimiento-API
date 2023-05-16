@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Proyecto-Prolis-paciente.iml" filepath="$PROJECT_DIR$/.idea/Proyecto-Prolis-paciente.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/businesdomain.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/businesdomain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catDepartamento/catDepartamento.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catDepartamento/catDepartamento.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catMunicipio/catMunicipio.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catMunicipio/catMunicipio.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catSexo/catSexo.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catSexo/catSexo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/departamento/departamento.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/departamento/departamento.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/empleado/empleado.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/empleado/empleado.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/paciente/paciente.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/paciente/paciente.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto-Prolis-paciente/prolis.iml" filepath="$PROJECT_DIR$/Proyecto-Prolis-paciente/prolis.iml" />

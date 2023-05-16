@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="catMunicipio" />
-        <module name="catDepartamento" />
+        <module name="departamento" />
         <module name="empleado" />
         <module name="paciente" />
         <module name="catSexo" />

@@ -5,9 +5,9 @@
       <list>
         <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/pom.xml" />
         <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/empleado/pom.xml" />
-        <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catMunicipio/pom.xml" />
-        <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catDepartamento/pom.xml" />
         <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catSexo/pom.xml" />
+        <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/departamento/pom.xml" />
+        <option value="$PROJECT_DIR$/Proyecto-Prolis-paciente/businesdomain/catMunicipio/pom.xml" />
       </list>
     </option>
   </component>
