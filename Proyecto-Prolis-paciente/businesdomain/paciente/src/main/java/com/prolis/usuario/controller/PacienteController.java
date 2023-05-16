@@ -4,7 +4,6 @@ import com.prolis.usuario.entity.Paciente;
 import com.prolis.usuario.service.PacienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +42,7 @@ public class PacienteController {
     @PutMapping("{id}")
     public ResponseEntity<Paciente> actualizarPx(@PathVariable("id") Long id, @RequestBody Paciente input)
     {
-        input.setIdpaciente(id);
+        input.setIdPaciente(id);
         Paciente px = px_service.actualizarPaciente(input);
         return new ResponseEntity<>(px, HttpStatus.OK);
     }

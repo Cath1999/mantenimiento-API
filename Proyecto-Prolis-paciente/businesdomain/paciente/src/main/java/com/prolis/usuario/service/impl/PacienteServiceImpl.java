@@ -3,7 +3,6 @@ package com.prolis.usuario.service.impl;
 import com.prolis.usuario.entity.Paciente;
 import com.prolis.usuario.repository.PacienteRepository;
 import com.prolis.usuario.service.PacienteService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,12 +35,12 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public Paciente actualizarPaciente(Paciente p) {
-        Paciente existe = pacienteRepository.findById(p.getIdpaciente()).get();
-        existe.setCedula(p.getCedula());
+        Paciente existe = pacienteRepository.findById(p.getIdPaciente()).get();
+        /*existe.setCedula(p.getCedula());
         existe.setNombres(p.getNombres());
         existe.setApellidos(p.getApellidos());
         existe.setTelefono(p.getTelefono());
-        existe.setDireccion(p.getDireccion());
+        existe.setDireccion(p.getDireccion());*/
         return pacienteRepository.save(existe);
     }
 
