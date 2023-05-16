@@ -1,4 +1,4 @@
-package com.prolis.catsexo.entities;
+package com.prolis.catsexo.entity;
 
 
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Data
