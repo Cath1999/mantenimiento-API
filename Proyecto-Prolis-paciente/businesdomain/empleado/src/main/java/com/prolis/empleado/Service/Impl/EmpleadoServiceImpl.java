@@ -1,8 +1,8 @@
-package com.prolis.empleado.service.impl;
+package com.prolis.empleado.Service.Impl;
 
 import com.prolis.empleado.entity.empleado;
-import com.prolis.empleado.repository.EmpleadoRepository;
-import com.prolis.empleado.service.EmpleadoService;
+import com.prolis.empleado.Repository.EmpleadoRepository;
+import com.prolis.empleado.Service.EmpleadoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,42 +17,42 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Autowired
     private final EmpleadoRepository EmpleadoRepository;
     @Override
-    public Empleado crearEmpleado(Empleado E) {
+    public empleado crearEmpleado(empleado E) {
         return EmpleadoRepository.save(E);
     }
 
     @Override
-    public Empleado listarPorId(Long id) {
-        Optional<Empleado> optionalEmpleado = EmpleadoRepository.findById(id);
+    public empleado listarPorId(Long id) {
+        Optional<empleado> optionalEmpleado = EmpleadoRepository.findById(id);
         return optionalEmpleado.get();
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Empleado> obtenerEmpleado() {
+    public List<empleado> obtenerEmpleado() {
         return EmpleadoRepository.findAll();
     }
 
     @Override
-    public Empleado actualizarEmpleado(Empleado E) {
-        Empleado existe = EmpleadoRepository.findById(E.getIdEmpleado()).get();
+    public empleado actualizarEmpleado(empleado E) {
+        empleado existe = EmpleadoRepository.findById(E.getIdEmpleado()).get();
 
-        existe.setIdProfesiones(E.GetIdProfesiones());
-        existe.setIdUsuarioCreacion(E.GetIdUsuarioCreacion());
-        existe.setIdUsuarioEliminacion(E.GetIdUsuarioEliminacion());
-        existe.setIdUsuarioModificacion(E.GetIdUsuarioModificacion());
-        existe.setFechaCreacion(E.GetFechaCreacion());
-        existe.setFechaModificacion(E.GetFechaModificacion());
-        existe.setFechaEliminacion(E.GetFechaEliminacion());
-        existe.setIdMunicipioRes(E.GetIdMunicipioRes());
-        existe.setIdMunicipioNac(E.GetIdMunicipioNac());
-        existe.setIdDepartamentoNac(E.GetIdDepartamentoNac());
-        existe.setIdDepartamentoRes(E.GetIdDepartamentoRes());
-        existe.setIdPaisNac(E.GetIdPaisNac());
-        existe.setIdPaisRes(E.GetIdPaisRes());
-        existe.setIdIdentificacion(E.GetIdIdentificacion());
-        existe.setIdEstadoCivil(E.GetIdEstadoCivil());
-        existe.setIdSexo(E.GetIdSexo());
+        existe.setIdProfesiones(E.getIdProfesiones());
+        existe.setIdUsuarioCreacion(E.getIdUsuarioCreacion());
+        existe.setIdUsuarioEliminacion(E.getIdUsuarioEliminacion());
+        existe.setIdUsuarioModificacion(E.getIdUsuarioModificacion());
+        existe.setFechaCreacion(E.getFechaCreacion());
+        existe.setFechaModificacion(E.getFechaModificacion());
+        existe.setFechaEliminacion(E.getFechaEliminacion());
+        existe.setIdMunicipioRes(E.getIdMunicipioRes());
+        existe.setIdMunicipioNac(E.getIdMunicipioNac());
+        existe.setIdDepartamentoNac(E.getIdDepartamentoNac());
+        existe.setIdDepartamentoRes(E.getIdDepartamentoRes());
+        existe.setIdPaisNac(E.getIdPaisNac());
+        existe.setIdPaisRes(E.getIdPaisRes());
+        existe.setIdIdentificacion(E.getIdIdentificacion());
+        existe.setIdEstadoCivil(E.getIdEstadoCivil());
+        existe.setIdSexo(E.getIdSexo());
         existe.setIdNacionalidad(E.getIdNacionalidad());
         existe.setNumIdentificacion(E.getNumIdentificacion());
         existe.setNumINSS(E.getNumINSS());
@@ -65,7 +65,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         existe.setEdadIngreso(E.getEdadIngreso());
         existe.setEmail(E.getEmail());
         existe.setPrimerNombre(E.getSegundoNombre());
-        existe.setDireccionDomiciliar(E.getDireccionDomicilar());
+        existe.setDireccionDomiciliar(E.getDireccionDomiciliar());
         existe.setTelefonoDomiciliar(E.getTelefonoDomiciliar());
         existe.setTelefonoMovil(E.getTelefonoMovil());
         existe.setFechaContrato(E.getFechaContrato());

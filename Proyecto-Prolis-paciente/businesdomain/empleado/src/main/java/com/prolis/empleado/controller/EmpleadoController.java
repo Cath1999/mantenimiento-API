@@ -1,7 +1,7 @@
 package com.prolis.empleado.controller;
 
 import com.prolis.empleado.entity.empleado;
-import com.prolis.empleado.service.EmpleadoService;
+import com.prolis.empleado.Service.EmpleadoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,32 +18,32 @@ public class EmpleadoController {
     private EmpleadoService Em_service;
 
     @PostMapping
-    public ResponseEntity<empleado> crearEmpleado(@RequestBody Empleado E)
+    public ResponseEntity<empleado> crearEmpleado(@RequestBody empleado E)
     {
-        Empleado Em = Em_service.crearEmpleado(E);
+        empleado Em = Em_service.crearEmpleado(E);
         return new ResponseEntity<>(Em, HttpStatus.CREATED);
     }
 
     // http://localhost:8080/api/empleado
     @GetMapping
-    public ResponseEntity<List<Empleado>> listarEmpleado(){
-        List<Empleado> Emp = Em_service.obtenerEmpleado();
+    public ResponseEntity<List<empleado>> listarEmpleado(){
+        List<empleado> Emp = Em_service.obtenerEmpleado();
         return new ResponseEntity<>(Emp, HttpStatus.OK);
     }
 
     // http://localhost:8080/api/empleado/1
     @GetMapping("{id}")
-    public ResponseEntity<Empleado> obtenerEmPorId(@PathVariable("id") Long id)
+    public ResponseEntity<empleado> obtenerEmPorId(@PathVariable("id") Long id)
     {
-        Empleado Em = Em_service.listarPorId(id);
+        empleado Em = Em_service.listarPorId(id);
         return new ResponseEntity<>(Em, HttpStatus.OK);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Empleado> actualizarEm(@PathVariable("id") Long id, @RequestBody Empleado input)
+    public ResponseEntity<empleado> actualizarEm(@PathVariable("id") Long id, @RequestBody empleado input)
     {
         input.setIdEmpleado(id);
-        Empleado Em = Em_service.actualizarEmpleado(input);
+        empleado Em = Em_service.actualizarEmpleado(input);
         return new ResponseEntity<>(Em, HttpStatus.OK);
     }
 
