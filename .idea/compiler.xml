@@ -9,20 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="catMunicipio" />
         <module name="departamento" />
+        <module name="catTipoMuestra" />
         <module name="empleado" />
         <module name="paciente" />
         <module name="catSexo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="businesdomain" target="17" />
       <module name="catDepartamento" target="17" />
-      <module name="catMunicipio" target="17" />
-      <module name="catSexo" target="17" />
-      <module name="departamento" target="17" />
-      <module name="empleado" target="17" />
-      <module name="paciente" target="17" />
-      <module name="prolis" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -30,6 +24,7 @@
       <module name="catDepartamento" options="-parameters" />
       <module name="catMunicipio" options="-parameters" />
       <module name="catSexo" options="-parameters" />
+      <module name="catTipoMuestra" options="-parameters" />
       <module name="departamento" options="-parameters" />
       <module name="empleado" options="-parameters" />
     </option>
