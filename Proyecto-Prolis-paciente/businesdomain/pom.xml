@@ -95,5 +95,10 @@
 
     <modules>
         <module>paciente</module>
+        <module>catMunicipio</module>
+        <module>catSexo</module>
+        <module>empleado</module>
+        <module>pais</module>
+        <module>departamento</module>
     </modules>
 </project>
