@@ -2,11 +2,19 @@ package com.prolis.catsexo.controller;
 
 import com.prolis.catsexo.entity.catSexo;
 import com.prolis.catsexo.service.catSexoService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+
+
+@CrossOrigin(origins =  "{http://localhost:8080}")
+@RestController
+@AllArgsConstructor
+@RequestMapping("api/Sexo")
 
 public class catSexoController {
 
@@ -20,14 +28,14 @@ public class catSexoController {
         return new ResponseEntity<>(sx, HttpStatus.CREATED);
     }
 
-    // http://localhost:8080/api/pacientes
+
     @GetMapping
     public ResponseEntity<List<catSexo>> listarSxPorId(){
         List<catSexo> sxs = sx_service.obtenerSxPorId();
         return new ResponseEntity<>(sxs, HttpStatus.OK);
     }
 
-    // http://localhost:8080/api/pacientes/1
+
     @GetMapping("{id}")
     public ResponseEntity<catSexo> obtenerSxPorId(@PathVariable("id") Long id)
     {

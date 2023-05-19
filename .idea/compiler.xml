@@ -24,7 +24,7 @@
       <module name="catDepartamento" options="-parameters" />
       <module name="catMunicipio" options="-parameters" />
       <module name="catSexo" options="-parameters" />
-      <module name="catTipoMuestra" options="-parameters" />
+      <module name="catTipoMuestra" options="" />
       <module name="departamento" options="-parameters" />
       <module name="empleado" options="-parameters" />
     </option>

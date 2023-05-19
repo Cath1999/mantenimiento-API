@@ -6,10 +6,11 @@ import java.util.List;
 
 public interface catSexoService {
 
-    catSexo crearSx(catSexo cm);
+    catSexo crearSx(catSexo sx);
     catSexo listarSxPorId(Long id);
-    List<catSexo> obtenerSxPorId();
-    catSexo actualizarSx(catSexo cm);
+    List <catSexo> obtenerSxPorId();
+    catSexo actualizarSx(catSexo sx);
     void eliminarSx(Long id);
 
 }
+
