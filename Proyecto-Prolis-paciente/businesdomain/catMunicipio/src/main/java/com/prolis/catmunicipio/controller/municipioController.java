@@ -10,30 +10,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "{http://localhost:8080}")
+//@CrossOrigin(origins = "{http://localhost:8080}")
 @RestController
 @AllArgsConstructor
-//@RequestMapping("api/catMunicipio)
+@RequestMapping("api/catmunicipio")
 
 public class municipioController {
 
     private catMunicipioService ctM_Service;
 
-
-    @PostMapping
+    // http://localhost:8081/api/catmunicipio
+        @PostMapping(path="/add")
     public ResponseEntity<catMunicipio> crearMunicipio(@RequestBody catMunicipio cm) {
         catMunicipio ctm = ctM_Service.crearMunicipio(cm);
         return new ResponseEntity<>(cm, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<catMunicipio>> listarPacientes(){
+    public ResponseEntity<List<catMunicipio>> listarcatMunicipio(){
         List<catMunicipio> mn = ctM_Service.obtenerMunicipio();
         return new ResponseEntity<>(mn, HttpStatus.OK);
     }
 
 
-    @GetMapping("id")
+    @GetMapping(path="/catMunicipioById/{id}")
     public ResponseEntity<catMunicipio> obtenerMpPorId(@PathVariable("id") Long id) {
         catMunicipio cms = ctM_Service.listarMunPorId(id);
         return new ResponseEntity<>(cms, HttpStatus.OK);

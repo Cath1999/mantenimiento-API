@@ -32,7 +32,7 @@ public class catDepartamentoController {
 
     @GetMapping("id")
     public ResponseEntity<catDepartamento> obtenerDpt(@PathVariable("id") Long id) {
-        catDepartamento dept = dpt_Service.listarDptPorId(id);
+        catDepartamento dept = dpt_Service.listarDpt(id);
         return new ResponseEntity<>( dept, HttpStatus.OK);
     }
 
