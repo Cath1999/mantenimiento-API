@@ -19,7 +19,13 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Autowired
     private final EmpleadoRepository empleadoRepository;
 
-    /*Solo de ejemplos*/
+    @Override
+    public empleado crearEmpleado(empleado e) {
+        if (e.getIdEmpleado() != null) {
+            throw new IllegalArgumentException("No se ha podido crear un nuevo empleado");
+        }
+        return empleadoRepository.save(e);
+    }
     @Override
     public empleado listarPorId(Long id) {
         Optional<empleado> optionalResultados = empleadoRepository.findById(id);
@@ -30,6 +36,19 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Transactional(readOnly = true)
     public List<empleado> obtenerEmpleados() {
         return empleadoRepository.findAll();
+    }
+
+    @Override
+    public empleado actualizarEmpleado(empleado e) {
+        empleado existe = empleadoRepository.findById(e.getIdEmpleado()).get();
+        existe.setPrimerNombre(e.getPrimerNombre());
+        return empleadoRepository.save(existe);
+    }
+
+
+    @Override
+    public void eliminarEmpleado(Long id) {
+        empleadoRepository.deleteById(id);
     }
 
 }

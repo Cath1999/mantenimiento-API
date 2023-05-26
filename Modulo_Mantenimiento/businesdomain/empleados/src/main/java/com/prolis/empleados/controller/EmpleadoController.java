@@ -5,10 +5,7 @@ import com.prolis.empleados.service.EmpleadoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,11 +16,22 @@ public class EmpleadoController {
     private EmpleadoService px_service;
 
     // http://localhost:8082/api/empleado
+
+
+    @PostMapping(path="/add")
+    public ResponseEntity<empleado> crearEmpleado(@RequestBody empleado e)
+    {
+        empleado empleado = px_service.crearEmpleado(e);
+        return new ResponseEntity<>(empleado, HttpStatus.CREATED);
+    }
+
+
     @GetMapping
     public ResponseEntity<List<empleado>> listarExamenes(){
         List<empleado> pxs = px_service.obtenerEmpleados();
         return new ResponseEntity<>(pxs, HttpStatus.OK);
     }
+
 
     //localhost:8082/api/empleado/empleadoById/{id}
     @GetMapping(path="/empleadoById/{id}")
@@ -32,4 +40,23 @@ public class EmpleadoController {
         empleado px = px_service.listarPorId(id);
         return new ResponseEntity<>(px, HttpStatus.OK);
     }
+
+    @PutMapping("id")
+    public ResponseEntity<empleado> actualizarEmpleado(@PathVariable("id") Long id, @RequestBody empleado input)
+    {
+        input.setIdEmpleado(id);
+        empleado e = px_service.actualizarEmpleado(input);
+        return new ResponseEntity<>(e, HttpStatus.OK);
+
+    }
+
+    @DeleteMapping("id")
+    public ResponseEntity<String> eliminarEmpleado(@PathVariable("id")Long id)
+    {
+        px_service.eliminarEmpleado(id);
+        return new ResponseEntity<>("Empleado eliminado correctamente", HttpStatus.OK);
+    }
+
+
+
 }
