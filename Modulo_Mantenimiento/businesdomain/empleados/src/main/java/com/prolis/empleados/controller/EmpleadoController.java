@@ -27,7 +27,7 @@ public class EmpleadoController {
 
 
     @GetMapping
-    public ResponseEntity<List<empleado>> listarExamenes(){
+    public ResponseEntity<List<empleado>> listarEmpleado(){
         List<empleado> pxs = px_service.obtenerEmpleados();
         return new ResponseEntity<>(pxs, HttpStatus.OK);
     }
@@ -35,9 +35,9 @@ public class EmpleadoController {
 
     //localhost:8082/api/empleado/empleadoById/{id}
     @GetMapping(path="/empleadoById/{id}")
-    public ResponseEntity<empleado> obtenerPxPorId(@PathVariable("id") Long id)
+    public ResponseEntity<empleado> ListarPorIdEmpleado(@PathVariable("id") Long id)
     {
-        empleado px = px_service.listarPorId(id);
+        empleado px = px_service.listarPorIdEmpleado(id);
         return new ResponseEntity<>(px, HttpStatus.OK);
     }
 

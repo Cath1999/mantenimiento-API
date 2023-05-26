@@ -27,7 +27,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         return empleadoRepository.save(e);
     }
     @Override
-    public empleado listarPorId(Long id) {
+    public empleado listarPorIdEmpleado(Long id) {
         Optional<empleado> optionalResultados = empleadoRepository.findById(id);
         return optionalResultados.orElse(null);
     }
@@ -41,7 +41,12 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Override
     public empleado actualizarEmpleado(empleado e) {
         empleado existe = empleadoRepository.findById(e.getIdEmpleado()).get();
+
+        existe.setIdProfesiones(e.getIdProfesiones());
         existe.setPrimerNombre(e.getPrimerNombre());
+        existe.setSegundoNombre(e.getSegundoNombre());
+        existe.setPrimerApellido(e.getPrimerApellido());
+        existe.setSegundoApellido(e.getSegundoApellido());
         return empleadoRepository.save(existe);
     }
 
