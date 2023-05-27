@@ -101,7 +101,7 @@
         <module>Pais</module>
         <module>Municipio</module>
         <module>Sexo</module>
-
+    <module>Paciente</module>
 
     </modules>
 </project>
