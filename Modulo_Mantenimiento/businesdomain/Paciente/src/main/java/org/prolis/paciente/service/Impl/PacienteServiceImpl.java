@@ -23,9 +23,7 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public Paciente crearPaciente(Paciente pc) {
-        if (pc.getIdPaciente() != null) {
-            throw new IllegalArgumentException("No se ha podido crear un nuevo paciente");
-        }
+
         return pacienteRepository.save(pc);
     }
 

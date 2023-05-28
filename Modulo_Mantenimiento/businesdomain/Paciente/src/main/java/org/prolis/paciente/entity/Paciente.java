@@ -2,6 +2,7 @@ package org.prolis.paciente.entity;
 
 import java.sql.Date;
 
+import io.micrometer.core.annotation.Counted;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,7 +11,7 @@ import lombok.Data;
 @Table(name = "tbl_paciente")
 public class Paciente {
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.TABLE)
         @Column (name="IdPaciente")
         private Long idPaciente;
         @Column (name="IdIdentificacion")
@@ -57,10 +58,10 @@ public class Paciente {
         private String segundoApellido;
         @Column (name="FechaNac")
         private Date fechaNac;
-        @Column (name="DireccionDomiciiar")
-        private String direccionDomiciiar;
+        @Column (name="DireccionDomiciliar")
+        private String direccionDomiciliar;
         @Column (name="TelefonoDomiciliar")
-        private String telefonoDomiciliar;
+        private String telefonoDomiciiar;
         @Column (name="TelefonoMovil")
         private String telefonoMovil;
         @Column (name="Activo")
@@ -70,7 +71,8 @@ public class Paciente {
         @Column (name="Fallecido")
         private String fallecido;
         @Column (name="Estado")
-        private Short estado;
+        private Long estado;
+
 
 
 
