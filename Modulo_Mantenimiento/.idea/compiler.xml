@@ -9,10 +9,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Municipio" />
         <module name="Paciente" />
+        <module name="TipoMuestra" />
         <module name="empleados" />
         <module name="Pais" />
         <module name="Sexo" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="TipoMuestra" options="" />
+    </option>
   </component>
 </project>
