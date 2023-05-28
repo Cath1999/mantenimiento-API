@@ -11,7 +11,7 @@ import lombok.Data;
 @Table(name = "tbl_paciente")
 public class Paciente {
         @Id
-        @GeneratedValue(strategy = GenerationType.TABLE)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column (name="IdPaciente")
         private Long idPaciente;
         @Column (name="IdIdentificacion")
