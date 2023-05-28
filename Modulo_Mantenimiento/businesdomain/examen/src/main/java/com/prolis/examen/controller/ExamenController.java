@@ -4,7 +4,7 @@ import com.prolis.examen.entity.Examen;
 import com.prolis.examen.service.ExamenService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +21,7 @@ public class ExamenController {
     @PostMapping(path="/add")
     public ResponseEntity<Examen> crearExamen(@RequestBody Examen e){
         Examen examen = examenService.crearExamen(e);
-        return new ResponseEntity<>(e, HttpStatus.CREATED);
+        return new ResponseEntity<>(examen, HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -44,7 +44,12 @@ public class ExamenController {
     public ResponseEntity<Examen> actualizarExamen(@PathVariable("id") Long id, @RequestBody Examen input){
         input.setIdExamen(id);
         Examen e = examenService.actualizarExamen(input);
-        return new ResponseEntity<>(e, HttpStatus.OK);
+        if (e.getIdExamen() != null){
+            return new ResponseEntity<>(e, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(e, HttpStatus.NOT_MODIFIED);
+        }
+
     }
 
     @DeleteMapping(path="/deleteById/{id}")

@@ -37,7 +37,14 @@ public class TipoMuestraServiceImpl implements TipoMuestraService {
 
     @Override
     public TipoMuestra actualizarMuestra(TipoMuestra m){
-        return tipoMuestraRepository.save(m);
+        boolean exists = tipoMuestraRepository.existsById(m.getIdTipoMuestra());
+        if (exists){
+            return tipoMuestraRepository.save(m);
+        }else{
+            m.setIdTipoMuestra(null);
+            return m;
+        }
+
     }
 
     @Override

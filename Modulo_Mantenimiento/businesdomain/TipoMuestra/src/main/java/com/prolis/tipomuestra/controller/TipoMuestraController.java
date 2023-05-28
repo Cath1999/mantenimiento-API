@@ -44,7 +44,12 @@ public class TipoMuestraController {
     public ResponseEntity<TipoMuestra> actualizarMuestra(@PathVariable("id") Long id, @RequestBody TipoMuestra input){
         input.setIdTipoMuestra(id);
         TipoMuestra m = tipoMuestraService.actualizarMuestra(input);
-        return new ResponseEntity<>(m, HttpStatus.OK);
+        if (m.getIdTipoMuestra() != null){
+            return new ResponseEntity<>(m, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(m, HttpStatus.NOT_MODIFIED);
+        }
+
 
     }
 

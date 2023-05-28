@@ -37,7 +37,14 @@ public class ExamenServiceImpl implements ExamenService {
 
     @Override
     public Examen actualizarExamen(Examen e){
-        return examenRepository.save(e);
+        boolean exists = examenRepository.existsById(e.getIdExamen());
+        if (exists){
+            return examenRepository.save(e);
+        }else{
+            e.setIdExamen(null);
+            return e;
+        }
+
     }
 
     @Override
