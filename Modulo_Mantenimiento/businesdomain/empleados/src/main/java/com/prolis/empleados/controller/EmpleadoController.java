@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/empleado")
@@ -41,7 +42,7 @@ public class EmpleadoController {
         return new ResponseEntity<>(px, HttpStatus.OK);
     }
 
-    @PutMapping("id")
+    @PutMapping("updateById/{id}")
     public ResponseEntity<empleado> actualizarEmpleado(@PathVariable("id") Long id, @RequestBody empleado input)
     {
         input.setIdEmpleado(id);
@@ -50,7 +51,7 @@ public class EmpleadoController {
 
     }
 
-    @DeleteMapping("id")
+    @DeleteMapping("deleteById/{id}")
     public ResponseEntity<String> eliminarEmpleado(@PathVariable("id")Long id)
     {
         px_service.eliminarEmpleado(id);
