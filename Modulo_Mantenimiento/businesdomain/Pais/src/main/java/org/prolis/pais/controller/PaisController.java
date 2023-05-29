@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/pais")
@@ -29,13 +31,13 @@ public class PaisController {
         return new ResponseEntity<>(paises, HttpStatus.OK);
     }
 
-    @GetMapping(path="/catMunicipioById/{id}")
+    @GetMapping(path="/paisById/{id}")
     public ResponseEntity<Pais> listarPorIdPais(@PathVariable("id") Long id) {
         Pais p = paisService.listarPorIdPais(id);
         return new ResponseEntity<>(p, HttpStatus.OK);
     }
 
-    @PutMapping("id")
+    @PutMapping("updateById/{id}")
     public ResponseEntity<Pais> actualizarPais(@PathVariable("id") Long id, @RequestBody Pais input)
     {
         input.setIdPais(id);
@@ -44,7 +46,7 @@ public class PaisController {
 
     }
 
-    @DeleteMapping("id")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<String> eliminarPais(@PathVariable("id")Long id)
     {
         paisService.eliminarPais(id);
