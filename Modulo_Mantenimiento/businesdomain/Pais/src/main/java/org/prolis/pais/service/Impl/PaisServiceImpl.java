@@ -24,10 +24,7 @@ public class PaisServiceImpl implements PaisService {
     private final PaisRepository paisRepository;
     @Override
     public Pais crearPais(Pais p) {
-        if (p.getIdPais() != null) {
-            throw new IllegalArgumentException("No se ha podido crear un nuevo pais");
-        }
-        return paisRepository.save(p);
+        return      paisRepository.save(p);
     }
     @Override
     public Pais listarPorIdPais(Long id) {

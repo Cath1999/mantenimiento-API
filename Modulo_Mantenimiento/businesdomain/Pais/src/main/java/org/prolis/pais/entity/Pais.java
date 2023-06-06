@@ -15,6 +15,6 @@ public class Pais {
 
     @Column(name = "IdPais")
     private Long IdPais;
-    @Column(name = "Descripcion")
+    @Column (name="Descripcion")
     private String descripcion;
 }
