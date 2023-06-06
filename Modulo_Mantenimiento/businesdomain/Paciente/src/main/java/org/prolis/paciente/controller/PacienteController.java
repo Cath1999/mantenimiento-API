@@ -2,6 +2,7 @@ package org.prolis.paciente.controller;
 
 
 import lombok.AllArgsConstructor;
+import net.minidev.json.JSONObject;
 import org.prolis.paciente.entity.Paciente;
 import org.prolis.paciente.service.PacienteService;
 import org.springframework.http.HttpStatus;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "{http://localhost:8080}")
+//@CrossOrigin(origins = "{http://localhost:8080}")
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/pacientes")
@@ -49,10 +50,12 @@ public class PacienteController {
     }
 
     @DeleteMapping(path="/deleteById/{id}")
-    public ResponseEntity<String> eliminarPaciente(@PathVariable("id")Long id)
+    public ResponseEntity<JSONObject> eliminarPaciente(@PathVariable("id")Long id)
     {
+        JSONObject json = new JSONObject();
+        json.put("status", 200);
         pacienteService.eliminarPaciente(id);
-        return new ResponseEntity<>("Paciente eliminado correctamente", HttpStatus.OK);
+        return new ResponseEntity<>(json, HttpStatus.OK);
     }
 
 }
