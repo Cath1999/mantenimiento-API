@@ -9,6 +9,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class PaisApplication {
 
+    public static void main(String[] args) {
+        SpringApplication.run(PaisApplication.class, args);}
+
+
     @Bean
     public WebMvcConfigurer corsConfigurer()
     {
@@ -19,4 +23,5 @@ public class PaisApplication {
             }
         };
     }
+
 }
