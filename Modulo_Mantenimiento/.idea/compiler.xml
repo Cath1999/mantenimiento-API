@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Municipio" />
-        <module name="Paciente" />
-        <module name="TipoMuestra" />
         <module name="ValorNormal" />
+        <module name="TipoMuestra" />
+        <module name="Paciente" />
+        <module name="Municipio" />
         <module name="empleados" />
-        <module name="Pais" />
         <module name="Sexo" />
+        <module name="Pais" />
         <module name="Examen" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="examen" target="17" />
+      <module name="Modulo_Mantenimiento" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
