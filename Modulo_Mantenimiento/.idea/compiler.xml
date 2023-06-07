@@ -12,6 +12,7 @@
         <module name="Paciente" />
         <module name="Municipio" />
         <module name="empleados" />
+        <module name="Departamento" />
         <module name="Sexo" />
         <module name="Pais" />
         <module name="Examen" />

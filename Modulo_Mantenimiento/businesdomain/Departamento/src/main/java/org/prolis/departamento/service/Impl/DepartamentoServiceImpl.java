@@ -23,9 +23,6 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 
     @Override
     public Departamento crearDepartamento(Departamento dt) {
-        if (dt.getIdDepartamento() != null) {
-            throw new IllegalArgumentException("No se ha podido crear un nuevo departamento");
-        }
         return departamentoRepository.save(dt);
     }
 
