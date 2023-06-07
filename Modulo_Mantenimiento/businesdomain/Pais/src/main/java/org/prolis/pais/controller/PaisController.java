@@ -1,6 +1,7 @@
 package org.prolis.pais.controller;
 
 import lombok.AllArgsConstructor;
+import net.minidev.json.JSONObject;
 import org.prolis.pais.entity.Pais;
 import org.prolis.pais.service.PaisService;
 import org.springframework.http.HttpStatus;
@@ -33,25 +34,46 @@ public class PaisController {
 
     @GetMapping(path="/paisById/{id}")
     public ResponseEntity<Pais> listarPorIdPais(@PathVariable("id") Long id) {
-        Pais p = paisService.listarPorIdPais(id);
-        return new ResponseEntity<>(p, HttpStatus.OK);
+        Pais m = PaisService.listarPorIdPais(id);
+        if (m != null){
+            return new ResponseEntity<>(m, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(m, HttpStatus.NOT_FOUND);
+        }
     }
 
     @PutMapping("updateById/{id}")
     public ResponseEntity<Pais> actualizarPais(@PathVariable("id") Long id, @RequestBody Pais input)
     {
         input.setIdPais(id);
-        Pais p = paisService.actualizarPais(input);
-        return new ResponseEntity<>(p, HttpStatus.OK);
+       Pais m = PaisService.actualizarPais(input);
+        if (m.getIdPais() != null){
+            return new ResponseEntity<>(m, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(m, HttpStatus.NOT_MODIFIED);
+        }
+
 
     }
 
-    @DeleteMapping("/deleteById/{id}")
-    public ResponseEntity<String> eliminarPais(@PathVariable("id")Long id)
+    @RequestMapping(method = RequestMethod.OPTIONS, value="/**")
+    public void manageOptions(Long id)
     {
-        paisService.eliminarPais(id);
-        return new ResponseEntity<>("Pais eliminado correctamente", HttpStatus.OK);
+        System.out.println(id);
     }
+    @DeleteMapping(path="/deleteById/{id}")
+    public ResponseEntity<JSONObject> eliminarPais(@PathVariable("id") Long id){
+        JSONObject json = new JSONObject();
 
+        boolean deleted = PaisService.eliminarPais(id);
+        if (deleted){
+            json.put("status", 200);
+            return new ResponseEntity<>(json, HttpStatus.OK);
+        }else{
+            json.put("status", 400);
+            return new ResponseEntity<>(json, HttpStatus.NOT_FOUND);
+        }
 
+    }
 }
+

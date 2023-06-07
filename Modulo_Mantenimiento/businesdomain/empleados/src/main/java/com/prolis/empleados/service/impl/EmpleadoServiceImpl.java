@@ -21,9 +21,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Override
     public empleado crearEmpleado(empleado e) {
-        if (e.getIdEmpleado() != null) {
-            throw new IllegalArgumentException("No se ha podido crear un nuevo empleado");
-        }
+
         return empleadoRepository.save(e);
     }
     @Override
@@ -40,14 +38,13 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Override
     public empleado actualizarEmpleado(empleado e) {
-        empleado existe = empleadoRepository.findById(e.getIdEmpleado()).get();
+      //  empleado existe = empleadoRepository.findById(e.getIdEmpleado()).get();
 
-        existe.setIdProfesiones(e.getIdProfesiones());
-        existe.setPrimerNombre(e.getPrimerNombre());
-        existe.setSegundoNombre(e.getSegundoNombre());
-        existe.setPrimerApellido(e.getPrimerApellido());
-        existe.setSegundoApellido(e.getSegundoApellido());
-        return empleadoRepository.save(existe);
+      //  existe.setIdProfesiones(e.getIdProfesiones());
+       // existe.setPrimerNombre(e.getPrimerNombre());
+      //  existe.setSegundoNombre(e.getSegundoNombre());
+//        existe.setSegundoApellido(e.getSegundoApellido());
+        return empleadoRepository.save(e);
     }
 
 

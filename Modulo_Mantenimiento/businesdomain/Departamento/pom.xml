@@ -6,6 +6,14 @@
         <groupId>com.prolis.businessdomain</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>3.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Departamento</artifactId>

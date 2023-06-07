@@ -103,6 +103,7 @@
         <module>Sexo</module>
         <module>TipoMuestra</module>
         <module>Paciente</module>
+        <module>Departamento</module>
 
 
     </modules>
