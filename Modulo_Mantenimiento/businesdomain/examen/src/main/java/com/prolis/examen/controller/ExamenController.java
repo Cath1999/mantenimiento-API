@@ -3,6 +3,7 @@ package com.prolis.examen.controller;
 import com.prolis.examen.entity.Examen;
 import com.prolis.examen.service.ExamenService;
 import lombok.AllArgsConstructor;
+import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "{http://localhost:8080}")
+//@CrossOrigin(origins = "{http://localhost:8080}")
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/examenes")
@@ -53,12 +54,11 @@ public class ExamenController {
     }
 
     @DeleteMapping(path="/deleteById/{id}")
-    public  ResponseEntity<String> eliminarExamen(@PathVariable("id") Long id){
-        boolean deleted = examenService.eliminarExamen(id);
-        if (deleted){
-            return new ResponseEntity<>("Examen eliminado correctamente", HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>("No existe el examen solicitado", HttpStatus.NOT_FOUND);
-        }
+    public  ResponseEntity<JSONObject> eliminarExamen(@PathVariable("id") Long id)
+    {
+        JSONObject json = new JSONObject();
+        json.put("status", 200);
+        examenService.eliminarExamen(id);
+        return new ResponseEntity<>(json, HttpStatus.OK);
     }
 }
