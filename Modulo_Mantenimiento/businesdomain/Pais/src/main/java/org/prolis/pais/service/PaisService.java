@@ -11,5 +11,5 @@ public interface PaisService {
     Pais listarPorIdPais(Long id);
     List<Pais> obtenerPaises();
     Pais actualizarPais(Pais p);
-    void eliminarPais(Long id);
+    boolean  eliminarPais(Long id);
 }

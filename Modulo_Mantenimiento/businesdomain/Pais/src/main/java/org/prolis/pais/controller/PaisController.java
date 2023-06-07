@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/pais")
@@ -32,48 +30,30 @@ public class PaisController {
         return new ResponseEntity<>(paises, HttpStatus.OK);
     }
 
-    @GetMapping(path="/paisById/{id}")
+    @GetMapping(path="/catMunicipioById/{id}")
     public ResponseEntity<Pais> listarPorIdPais(@PathVariable("id") Long id) {
-        Pais m = PaisService.listarPorIdPais(id);
-        if (m != null){
-            return new ResponseEntity<>(m, HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(m, HttpStatus.NOT_FOUND);
-        }
+        Pais p = paisService.listarPorIdPais(id);
+        return new ResponseEntity<>(p, HttpStatus.OK);
     }
 
-    @PutMapping("updateById/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<Pais> actualizarPais(@PathVariable("id") Long id, @RequestBody Pais input)
     {
         input.setIdPais(id);
-       Pais m = PaisService.actualizarPais(input);
-        if (m.getIdPais() != null){
-            return new ResponseEntity<>(m, HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(m, HttpStatus.NOT_MODIFIED);
-        }
-
+        Pais p = paisService.actualizarPais(input);
+        return new ResponseEntity<>(p, HttpStatus.OK);
 
     }
 
-    @RequestMapping(method = RequestMethod.OPTIONS, value="/**")
-    public void manageOptions(Long id)
+    @DeleteMapping("/deleteById/{id}")
+    public ResponseEntity<JSONObject> eliminarPais(@PathVariable("id")Long id)
     {
-        System.out.println(id);
-    }
-    @DeleteMapping(path="/deleteById/{id}")
-    public ResponseEntity<JSONObject> eliminarPais(@PathVariable("id") Long id){
+
         JSONObject json = new JSONObject();
-
-        boolean deleted = PaisService.eliminarPais(id);
-        if (deleted){
-            json.put("status", 200);
-            return new ResponseEntity<>(json, HttpStatus.OK);
-        }else{
-            json.put("status", 400);
-            return new ResponseEntity<>(json, HttpStatus.NOT_FOUND);
-        }
-
+        json.put("status", 200);
+        paisService.eliminarPais(id);
+        return new ResponseEntity<>(json, HttpStatus.OK);
     }
-}
 
+
+}

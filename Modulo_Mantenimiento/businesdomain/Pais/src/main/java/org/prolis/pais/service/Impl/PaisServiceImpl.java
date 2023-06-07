@@ -48,12 +48,14 @@ public class PaisServiceImpl implements PaisService {
     }
 
 
-
-
     @Override
-    public void eliminarPais(Long id) {
-        paisRepository.deleteById(id);
+    public boolean eliminarPais(Long id){
+        boolean valor = paisRepository.existsById(id);
+        if (valor){
+           paisRepository.deleteById(id);
+            return true;
+        }else{
+            return false;
+        }
     }
-
 }
-

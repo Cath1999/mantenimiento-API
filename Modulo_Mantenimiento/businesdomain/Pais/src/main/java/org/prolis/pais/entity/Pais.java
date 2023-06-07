@@ -1,8 +1,5 @@
 package org.prolis.pais.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -10,11 +7,15 @@ import lombok.Data;
 @Table(name = "tbl_cat_pais")
 public class Pais {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
 
 
     @Column(name = "IdPais")
-    private Long IdPais;
+    private Long idPais;
     @Column (name="Descripcion")
     private String descripcion;
+
+    @Column(name="Estado")
+    private Long estado;
+
 }
