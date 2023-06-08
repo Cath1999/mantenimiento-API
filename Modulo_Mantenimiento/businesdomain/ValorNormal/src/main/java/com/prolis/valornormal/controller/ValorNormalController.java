@@ -3,6 +3,7 @@ package com.prolis.valornormal.controller;
 import com.prolis.valornormal.entity.ValorNormal;
 import com.prolis.valornormal.service.ValorNormalService;
 import lombok.AllArgsConstructor;
+import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "{http://localhost:8080}")
+//@CrossOrigin(origins = "{http://localhost:8080}")
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/valores")
@@ -53,12 +54,12 @@ public class ValorNormalController {
     }
 
     @DeleteMapping(path="/deleteById/{id}")
-    public ResponseEntity<String> eliminarValor(@PathVariable("id") Long id){
-        boolean deleted = valorNormalService.eliminarValor(id);
-        if (deleted){
-            return new ResponseEntity<>("Valor eliminado correctamente", HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>("No existe el valor solicitado", HttpStatus.NOT_FOUND);
+    public ResponseEntity<JSONObject> eliminarValor(@PathVariable("id") Long id){
+        {
+            JSONObject json = new JSONObject();
+            json.put("status", 200);
+            valorNormalService.eliminarValor(id);
+            return new ResponseEntity<>(json, HttpStatus.OK);
         }
     }
 }
