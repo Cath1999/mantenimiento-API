@@ -11,6 +11,6 @@ public interface EmpleadoService {
     empleado listarPorIdEmpleado(Long id);
     List<empleado> obtenerEmpleados();
     empleado actualizarEmpleado(empleado e);
-    void eliminarEmpleado(Long id);
+    boolean eliminarEmpleado(Long id);
 
 }

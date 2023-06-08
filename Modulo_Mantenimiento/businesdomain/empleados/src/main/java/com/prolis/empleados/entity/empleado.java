@@ -13,22 +13,22 @@ public class empleado {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdEmpleado")
-    private Long IdEmpleado;
+    private Long idEmpleado;
 
-    @Column(name = "IdProfesionales")
-    private Long IdProfesionales;
+    @Column(name = "IdProfesiones")
+    private Long idProfesiones;
 
     @Column(name = "IdMunicipioRes")
-    private Long IdMunicipioRes;
+    private Long idMunicipioRes;
 
     @Column(name = "IdMunicipioNac")
-    private Long IdMunicipioNac;
+    private Long idMunicipioNac;
 
     @Column(name = "IdDepartamentoNac")
-    private Long IdDepartamentoNac;
+    private Long idDepartamentoNac;
 
-    @Column(name = "IIdDepartamentoRes")
-    private Long IdDepartamentoRes;
+    @Column(name = "IdDepartamentoRes")
+    private Long idDepartamentoRes;
 
     @Column (name="IdPaisNac")
     private Long idPaisNac;
@@ -55,7 +55,7 @@ public class empleado {
     private String numINSS;
 
     @Column (name="CodMinsa")
-    private String CodMinsa;
+    private String codMinsa;
 
     @Column (name="PrimerNombre")
     private String primerNombre;
@@ -69,26 +69,26 @@ public class empleado {
     private Date fechaNac;
 
     @Column (name="EdadIngreso")
-    private String  EdadIngreso;
+    private String  edadIngreso;
 
     @Column (name="Email")
     private String email;
 
     @Column (name="DireccionDomiciliar")
-    private String DireccionDomiciliar;
+    private String direccionDomiciliar;
 
     @Column (name="TelefonoDomiciliar")
-    private String TelefonoDomiciliar;
+    private String telefonoDomiciliar;
 
     @Column (name="TelefonoMovil")
-    private String TelefonoMovil;
+    private String telefonoMovil;
     @Column (name="FechaContrato")
-    private Date FechaContrato;
+    private Date fechaContrato;
 
     @Column (name="UrlFoto")
-    private String UrlFoto;
+    private String urlFoto;
     @Column (name="Activo")
-    private String Activo;
+    private String activo;
     @Column (name="Estado")
     private Long estado;
 

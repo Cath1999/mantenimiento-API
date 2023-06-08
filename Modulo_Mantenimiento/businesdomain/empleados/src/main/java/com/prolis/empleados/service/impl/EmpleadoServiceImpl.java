@@ -38,19 +38,24 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Override
     public empleado actualizarEmpleado(empleado e) {
-      //  empleado existe = empleadoRepository.findById(e.getIdEmpleado()).get();
-
-      //  existe.setIdProfesiones(e.getIdProfesiones());
-       // existe.setPrimerNombre(e.getPrimerNombre());
-      //  existe.setSegundoNombre(e.getSegundoNombre());
-//        existe.setSegundoApellido(e.getSegundoApellido());
-        return empleadoRepository.save(e);
+        boolean exists = empleadoRepository.existsById(e.getIdEmpleado());
+        if (exists){
+            return empleadoRepository.save(e);
+        }else{
+            e.setIdEmpleado(null);
+            return e;
+        }
     }
 
 
     @Override
-    public void eliminarEmpleado(Long id) {
+    public boolean eliminarEmpleado(Long id){
+    boolean valor = empleadoRepository.existsById(id);
+        if (valor){
         empleadoRepository.deleteById(id);
+        return true;
+    }else{
+        return false;
     }
-
+}
 }

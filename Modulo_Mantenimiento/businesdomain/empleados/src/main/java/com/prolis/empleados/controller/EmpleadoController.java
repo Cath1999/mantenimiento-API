@@ -3,6 +3,7 @@ package com.prolis.empleados.controller;
 import com.prolis.empleados.entity.empleado;
 import com.prolis.empleados.service.EmpleadoService;
 import lombok.AllArgsConstructor;
+import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,11 +53,12 @@ public class EmpleadoController {
     }
 
     @DeleteMapping("deleteById/{id}")
-    public ResponseEntity<String> eliminarEmpleado(@PathVariable("id")Long id)
+    public ResponseEntity<JSONObject> eliminarEmpleado(@PathVariable("id")Long id)
     {
+        JSONObject json = new JSONObject();
+        json.put("status", 200);
         px_service.eliminarEmpleado(id);
-        return new ResponseEntity<>("Empleado eliminado correctamente", HttpStatus.OK);
-    }
+        return new ResponseEntity<>(json, HttpStatus.OK); }
 
 
 
